@@ -9,11 +9,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-wait = WebDriverWait(driver, timeout=5, ignored_exceptions=(WebDriverException,))
 
 
 def test_short_password():
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    wait = WebDriverWait(driver, timeout=5, ignored_exceptions=(WebDriverException,))
     driver.get('https://koshelek.ru/authorization/signup')
     shadow_host = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "remoteComponent")))
     shadow_root = shadow_host.shadow_root
@@ -29,6 +29,8 @@ def test_short_password():
 
 
 def test_bad_password():
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    wait = WebDriverWait(driver, timeout=5, ignored_exceptions=(WebDriverException,))
     driver.get('https://koshelek.ru/authorization/signup')
     shadow_host = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "remoteComponent")))
     shadow_root = shadow_host.shadow_root
