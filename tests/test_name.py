@@ -1,6 +1,5 @@
 import pytest
 import allure
-from time import sleep
 from selenium import webdriver
 from selenium.common import WebDriverException
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -11,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-wait = WebDriverWait(driver, timeout=7, ignored_exceptions=(WebDriverException,))
+wait = WebDriverWait(driver, timeout=5, ignored_exceptions=(WebDriverException,))
 
 
 def test_name():
